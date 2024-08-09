@@ -1,1 +1,46 @@
 # MyScooterRentals
+
+# Overview
+Welcome to the Scooter Rental Application! This application is designed to efficiently manage scooter rentals using the Qt framework for the user interface. It provides functionalities for customers, employees, and administrators to interact with the system.
+
+# Features
+- Sign Up: Create a new account with username and password.
+- Login: Access your account with existing credentials.
+- Rent Scooters: Browse available scooters and initiate rentals.
+- Track Rentals: View current and past rental history.
+  
+# Technologies Used
+- Qt Framework: For creating the user interface.
+- SQLite: For database management and storage.
+- C++: Programming language used for application logic.
+- QMake: Build system used to compile the project.
+- 
+# User Roles and Functionalities
+## Administrators
+Administrators have full access to manage the system and oversee operations. Their functionalities include:
+
+- Manage Users: Add, update, or delete user accounts. View user details and rental history.
+- Manage Scooters: Add, update, or remove scooters from the system. Track scooter availability and maintenance.
+- View Reports: Generate and view reports on scooter rentals, user activities, and financial transactions.
+- System Settings: Configure system settings, including rental policies, pricing, and operational hours.
+- Monitor System Health: Check system logs and performance metrics to ensure smooth operation.
+  
+## Employees
+Employees interact with the system primarily to assist customers and maintain scooters. Their functionalities include:
+
+- Assist with Rentals: Help customers with the rental process, including account creation, scooter selection, and rental initiation.
+- Manage Scooter Maintenance: Report and track scooter maintenance issues. Ensure scooters are in good working condition.
+- View Rental History: Access customer rental history for customer service and support purposes.
+- Assist with Returns: Help process scooter returns and verify the condition of returned scooters.
+- Customer Support: Provide assistance with customer inquiries and resolve issues related to rentals and account management.
+
+## Customers
+Customers use the application to manage their rental activities and interact with the system. Their functionalities include:
+
+- Sign Up: Create a new account with a username and password.
+- Login: Access their account using their credentials.
+- Browse Scooters: View available scooters and their details.
+- Rent Scooters: Select a scooter and initiate a rental process.
+- View Rental History: Check current and past rental activities.
+- Update Account Information: Modify personal details, such as contact information and password.
+- Return Scooters: End the rental period and return the scooter, including verifying its condition.

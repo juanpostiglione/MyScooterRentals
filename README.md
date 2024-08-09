@@ -7,7 +7,11 @@ Welcome to the Scooter Rental Application! This application is designed to effic
 
 
 
-https://github.com/user-attachments/assets/a98529e8-93b1-467b-a7ca-3707e704b0f8 
+
+
+https://github.com/user-attachments/assets/f5cd2ed1-1fab-4d0a-a76e-56031d9a47d5
+
+
 
 
 

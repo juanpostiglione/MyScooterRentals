@@ -3,6 +3,9 @@
 # Overview
 Welcome to the Scooter Rental Application! This application is designed to efficiently manage scooter rentals using the Qt framework for the user interface. It provides functionalities for customers, employees, and administrators to interact with the system.
 
+<img width="398" alt="Screenshot 2024-08-09 at 3 31 53 PM" src="https://github.com/user-attachments/assets/1d7dc8e0-be55-4964-a659-1c9c61acb0a9">
+
+
 # Features
 - Sign Up: Create a new account with username and password.
 - Login: Access your account with existing credentials.

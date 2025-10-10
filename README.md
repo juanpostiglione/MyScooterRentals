@@ -16,58 +16,30 @@ https://github.com/user-attachments/assets/f5cd2ed1-1fab-4d0a-a76e-56031d9a47d5
 
 
 
-# Features
-- Sign Up: Create a new account with username and password.
-- Login: Access your account with existing credentials.
-- Rent Scooters: Browse available scooters and initiate rentals.
-- Track Rentals: View current and past rental history.
-  
-# Technologies Used
-- Qt Framework: For creating the user interface.
-- SQLite: For database management and storage.
-- C++: Programming language used for application logic.
-- QMake: Build system used to compile the project.
-- 
-# User Roles and Functionalities
-## Administrators
-Administrators have full access to manage the system and oversee operations. Their functionalities include:
+## Development Process
 
-- Manage Users: Add, update, or delete user accounts. View user details and rental history.
-- Manage Scooters: Add, update, or remove scooters from the system. Track scooter availability and maintenance.
-- View Reports: Generate and view reports on scooter rentals, user activities, and financial transactions.
-- System Settings: Configure system settings, including rental policies, pricing, and operational hours.
-- Monitor System Health: Check system logs and performance metrics to ensure smooth operation.
-  
-## Employees
-Employees interact with the system primarily to assist customers and maintain scooters. Their functionalities include:
+The development process began by designing the application architecture. Using Qt’s modular approach, you created different windows for login, registration, and scooter management. Each window was linked to specific .cpp and .h files that handled the logic behind button actions, input validation, and database communication. For instance, when a user logs in or rents a scooter, their actions on the interface trigger C++ functions connected to Qt’s signals and slots system — a mechanism that allows user interface events (like button clicks) to call specific functions in the backend code.
 
-- Assist with Rentals: Help customers with the rental process, including account creation, scooter selection, and rental initiation.
-- Manage Scooter Maintenance: Report and track scooter maintenance issues. Ensure scooters are in good working condition.
-- View Rental History: Access customer rental history for customer service and support purposes.
-- Assist with Returns: Help process scooter returns and verify the condition of returned scooters.
-- Customer Support: Provide assistance with customer inquiries and resolve issues related to rentals and account management.
+The next step was connecting the application to the SQLite database, which serves as the data storage system. Instead of using a remote server, SQLite stores all information locally in a .db file called database_q.db. This made the project lightweight and portable while still supporting standard SQL operations. Within this database, you defined tables such as Users, Scooters, and Rentals.
 
-## Customers
-Customers use the application to manage their rental activities and interact with the system. Their functionalities include:
+- The Users table stores login credentials, user types, and personal information.
 
-- Sign Up: Create a new account with a username and password.
-- Login: Access their account using their credentials.
-- Browse Scooters: View available scooters and their details.
-- Rent Scooters: Select a scooter and initiate a rental process.
-- View Rental History: Check current and past rental activities.
-- Update Account Information: Modify personal details, such as contact information and password.
-- Return Scooters: End the rental period and return the scooter, including verifying its condition.
+- The Scooters table tracks each scooter’s status (available, in use, under maintenance), ID, and location.
 
-# Next Steps:
+- The Rentals table records active and completed rentals, including start times, end times, and the user associated with each rental.
 
-- Enhanced Features: Adding advanced functionalities such as real-time scooter location updates, user notifications, and integrated payment processing.
-- Performance Optimization: Improving application performance and scalability through code refactoring and optimization techniques.
-- Cross-Platform Support: Expanding compatibility to additional platforms and operating systems to reach a broader user base.
-- Public Release: Preparing for a public launch by setting up a user-friendly deployment process and creating a comprehensive user guide.
+## Use of SQL
 
-# Technical Debt:
+SQL played a central role in handling all database operations. When a user signs up, the program executes an INSERT query to add the new account into the Users table. During login, the system runs a SELECT query to check if the username and password exist. When a scooter is rented, an UPDATE query changes its status to “in use,” and an INSERT statement adds a new record into the Rentals table. When a scooter is returned, another UPDATE query marks it as available again and stores the return timestamp.
 
-- Code Refinement: Some sections of the codebase need refactoring to improve readability and maintainability.
-- Testing Coverage: Expanding unit and integration testing to ensure robust and reliable performance.
-- Documentation: Enhancing internal documentation and comments for better onboarding and future development.
+These SQL queries are executed through Qt’s built-in QSqlDatabase and QSqlQuery classes, which provide an easy way to run commands and handle results directly from C++ code. Each query result is processed and displayed on the interface in real time, keeping the user interface synchronized with the database content.
 
+## Qt Desktop Functionality
+
+The Qt framework was responsible for creating the graphical user interface (GUI) and managing interaction between the user and the program. Qt Designer, part of the framework, allowed you to visually design each window by dragging and dropping widgets such as text boxes, labels, tables, and buttons. These interface components are saved as .ui files, which are automatically converted into C++ code during compilation.
+
+Qt also handles user interaction through its signal-slot system. When a user performs an action — for example, clicking a “Rent” button — the button emits a signal that is connected to a slot, which is a function in your C++ code. That slot function might check scooter availability, run an SQL query to update the rental record, and then refresh the interface to show the scooter as “rented.” This system makes Qt applications responsive and event-driven.
+
+## Integration and Results
+
+By combining Qt and SQLite, the project achieved a fully integrated desktop system capable of managing scooter rentals from a single interface. Users can log in, view available scooters, rent them, and return them, while administrators can monitor all activity in the database. The interaction between the front end (Qt interface) and back end (SQL database) occurs seamlessly, allowing data changes to be reflected instantly in the GUI. The application demonstrates key software engineering principles such as modularity, user data validation, real-time updates, and persistent storage.
